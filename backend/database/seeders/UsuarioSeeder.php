@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nombre' => 'Administrador',
             'email' => 'admin@genli.com',
-            'password' => 'admin123',
+            'password' => Hash::make('admin123'),
             'rol' => 'admin',
             'estado' => 'activo'
         ]);
@@ -20,7 +21,7 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nombre' => 'Gerente Genli',
             'email' => 'gerente@genli.com',
-            'password' => 'gerente123',
+            'password' => Hash::make('gerente123'),
             'rol' => 'gerente',
             'estado' => 'activo'
         ]);
@@ -28,7 +29,7 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nombre' => 'Técnico Genli',
             'email' => 'tecnico@genli.com',
-            'password' => 'tecnico123',
+            'password' => Hash::make('tecnico123'),
             'rol' => 'tecnico',
             'estado' => 'activo'
         ]);

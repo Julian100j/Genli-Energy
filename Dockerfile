@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
+    ca-certificates \
     && docker-php-ext-install pdo_mysql zip gd mbstring
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -19,6 +20,7 @@ COPY backend/composer.json backend/composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
 COPY backend/ .
+COPY backend/tidb_ca.pem /app/tidb_ca.pem
 
 RUN composer dump-autoload --optimize
 
